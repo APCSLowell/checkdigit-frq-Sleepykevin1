@@ -5,15 +5,18 @@ public class CheckDigit
    *  six, inclusive.  
    *          num >= 0  
    */  
-   public static int getCheck(int num) 
-   {  
+
      /* to be implemented in part (a) */
-     int sum = 0;
-     for(int i = 1; i<getNumberOfDigits(nums);i++){
-       sum += (8-i)* getDigit(num,i)
-     }
-     return sum % 10;
-   }
+public static int getCheck(int num)
+{
+  int sum = 0;
+  int numDigits = getNumberOfDigits(num);
+  for (int i = 1; i <= numDigits; i++) {
+    sum += (8 - i) * getDigit(num, i);
+  }
+  return sum % 10;
+}
+
  
   /** Returns true if numWithCheckDigit is valid, or false    
    *  otherwise, as described in part (b). 
@@ -21,18 +24,17 @@ public class CheckDigit
    *  is between two and seven, inclusive.
    *                numWithCheckDigit >= 0     
    */     
-   public static boolean isValid(int numWithCheckDigit)    
-   {      
+
      /* to be implemented in part (b) */    
-     int check = numWithCheckDigit % 10;
-     int num = numWithCheckDigit / 10;
-     int newcheck = getCheck(num);
-     if(check == newCheck){
-       return true;
-     } else {
-       return false;
-     }
-   }    
+public static boolean isValid(int numWithCheckDigit)
+{
+  int check = numWithCheckDigit % 10;
+  int num = numWithCheckDigit / 10;
+  int newCheck = getCheck(num);
+  return check == newCheck;
+}
+
+
    
    /** Returns the number of digits in num. */    
    public static int getNumberOfDigits(int num)    
